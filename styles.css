@@ -66,28 +66,87 @@ nav ul li a:hover {
     color: #1f1f1f;
 }
 
+
+
 /* Hero Section */
 .hero {
     height: 100vh;
-    /* background: linear-gradient(to right, #2b5876, #4e4376); */
     background: url('background.png') no-repeat center center/cover;
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
+    position: relative;
+    padding: 0 20px; /* Add padding for mobile responsiveness */
 }
 
-.hero h1 {
-    font-size: 3rem;
+/* Adding a stronger dark overlay to the background */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6); /* Darker overlay for better contrast */
+    z-index: -1; /* Make sure the overlay is behind the text */
+}
+
+/* Hero Heading */
+.hero-heading {
+    font-size: 4rem; /* Larger text size */
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.2;
+    display: inline-flex; /* Ensures it wraps tightly around the text */
+    justify-content: center;
+    gap: 10px;
+    position: relative;
     margin-bottom: 15px;
 }
 
+/* Gradient Text Styling */
+.gradient-text {
+    display: inline-block;
+    background: linear-gradient(to right, #2563eb, #00bcd4); /* Default gradient */
+    -webkit-background-clip: text; /* For Safari */
+    background-clip: text; /* For other browsers */
+    color: transparent; /* Make text transparent so the gradient shows */
+}
+
+/* Specific Gradients for Each Word */
+.software {
+    background: linear-gradient(to right, #2563eb, #00bcd4); /* Blue to cyan */
+    -webkit-background-clip: text; /* Ensure the gradient is clipped to text */
+    background-clip: text; /* Ensure the gradient is clipped to text */
+    color: transparent; /* Make sure text itself is transparent to show gradient */
+}
+
+.solutions {
+    background: linear-gradient(to right, #f87171, #fb923c); /* Red to orange */
+    -webkit-background-clip: text; /* Ensure the gradient is clipped to text */
+    background-clip: text; /* Ensure the gradient is clipped to text */
+    color: transparent; /* Make sure text itself is transparent to show gradient */
+}
+
+/* Optional Hover Effect for Cool Interactions */
+.hero-heading span {
+    padding: 0 5px; /* Space between words */
+    transition: transform 0.3s ease;
+}
+
+.hero-heading span:hover {
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+/* Hero Text Paragraph */
 .hero p {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     margin-bottom: 25px;
 }
 
+/* Call to Action Button */
 .cta-button {
     background-color: #ff9800;
     color: white;
@@ -100,6 +159,38 @@ nav ul li a:hover {
 .cta-button:hover {
     background-color: #e68a00;
 }
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .hero-heading {
+        font-size: 2.5rem; /* Adjust for smaller screens */
+        flex-direction: column; /* Stack the heading text vertically */
+        gap: 5px;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .hero p {
+        font-size: 1.2rem; /* Adjust paragraph font size */
+        margin-bottom: 20px;
+    }
+
+    .cta-button {
+        padding: 8px 15px; /* Adjust button padding */
+    }
+}
+
+/* Optional Mobile Adjustments */
+@media (max-width: 480px) {
+    .hero-heading {
+        font-size: 2rem; /* Smaller font size for very small screens */
+    }
+
+    .hero p {
+        font-size: 1rem; /* Further reduce the paragraph font size */
+    }
+}
+
 
 /* About and Services Section */
 .about-section, .services-section, .contact-section {

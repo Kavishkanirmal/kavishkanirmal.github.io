@@ -46,7 +46,8 @@ document.addEventListener('DOMContentLoaded', () => {
         snowflake.classList.add('snowflake');
 
         // Randomize snowflake size, position, and animation speed
-        const size = Math.random() * 10 + 5; // Size between 5px and 15px
+        // const size = Math.random() * 10 + 5; // Size between 5px and 15px
+        const size = Math.random() * 5 + 3; // Size between 3px and 8px
         const duration = Math.random() * 5 + 5; // Duration between 5s and 10s
         const positionX = Math.random() * window.innerWidth; // Random horizontal position
         const positionY = Math.random() * window.innerHeight; // Random vertical starting position
