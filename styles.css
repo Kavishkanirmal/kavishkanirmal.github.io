@@ -9,7 +9,7 @@ body, html {
 
 /* Container */
 .container {
-    width: 80%;
+    width: 65%;
     margin: 0 auto;
     padding: 20px;
 }
@@ -17,7 +17,6 @@ body, html {
 /* Header and Navigation */
 /* Header and Navigation */
 header {
-    background-color: #1f1f1f;
     color: #ffffff;
     padding: 15px 0;
     position: fixed;
@@ -71,7 +70,7 @@ nav ul li a:hover {
 /* Hero Section */
 .hero {
     height: 100vh;
-    background: url('background.png') no-repeat center center/cover;
+    background: url('background1.jpg') no-repeat center center/cover;
     color: white;
     display: flex;
     justify-content: center;
@@ -81,6 +80,16 @@ nav ul li a:hover {
     padding: 0 20px; /* Add padding for mobile responsiveness */
 }
 
+.hero-text {
+    position: absolute;
+    bottom: 20px; /* Distance from the bottom */
+    left: 20px; /* Distance from the left */
+    text-align: left; /* Align the text to the left */
+    color: white; /* Ensure text is visible */
+    max-width: 80%; /* Prevent text from stretching across the screen */
+    z-index: 2; /* Make sure the overlay is behind the text */
+}
+
 /* Adding a stronger dark overlay to the background */
 .hero::before {
     content: '';
@@ -88,28 +97,45 @@ nav ul li a:hover {
     top: 0;
     left: 0;
     right: 0;
+    height: 100%; /* Full height of the hero section */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0) 30%);
+    z-index: 1; /* Ensure the overlay is behind the text */
+}
+
+
+/* Adding a black gradient shading from the bottom */
+.hero::after {
+    content: '';
+    position: absolute;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.6); /* Darker overlay for better contrast */
-    z-index: -1; /* Make sure the overlay is behind the text */
+    left: 0;
+    right: 0;
+    height: 40%; /* Adjust height to control how much of the gradient is visible */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+    z-index: 1; /* Make sure the overlay is behind the text */
 }
 
 /* Hero Heading */
 .hero-heading {
-    font-size: 4rem; /* Larger text size */
-    font-weight: bold;
-    text-align: center;
-    line-height: 1.2;
-    display: inline-flex; /* Ensures it wraps tightly around the text */
+    font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-feature-settings: normal;
+    font-size: 4rem;
+    font-variation-settings: normal;
+    font-weight: 700;
+    height: auto;
+    text-align: center; /* Ensure it stays centered */
+    display: inline-flex;
     justify-content: center;
     gap: 10px;
     position: relative;
     margin-bottom: 15px;
 }
 
+
 /* Gradient Text Styling */
 .gradient-text {
     display: inline-block;
-    background: linear-gradient(to right, #2563eb, #00bcd4); /* Default gradient */
+    background: linear-gradient(to right, #f8fafc, #cbd5e1); /* Default gradient */
     -webkit-background-clip: text; /* For Safari */
     background-clip: text; /* For other browsers */
     color: transparent; /* Make text transparent so the gradient shows */
@@ -117,14 +143,14 @@ nav ul li a:hover {
 
 /* Specific Gradients for Each Word */
 .software {
-    background: linear-gradient(to right, #2563eb, #00bcd4); /* Blue to cyan */
+    background: linear-gradient(to right, #2563eb, #67e8f9); /* Blue to cyan */
     -webkit-background-clip: text; /* Ensure the gradient is clipped to text */
     background-clip: text; /* Ensure the gradient is clipped to text */
     color: transparent; /* Make sure text itself is transparent to show gradient */
 }
 
 .solutions {
-    background: linear-gradient(to right, #f87171, #fb923c); /* Red to orange */
+    background: linear-gradient(to right, #ef4444, #f97316); /* Red to orange */
     -webkit-background-clip: text; /* Ensure the gradient is clipped to text */
     background-clip: text; /* Ensure the gradient is clipped to text */
     color: transparent; /* Make sure text itself is transparent to show gradient */
@@ -142,8 +168,10 @@ nav ul li a:hover {
 
 /* Hero Text Paragraph */
 .hero p {
-    font-size: 1.5rem;
+    font-size: 1rem; /* Smaller font size */
     margin-bottom: 25px;
+    font-family: ui-sans-serif, system-ui, sans-serif;
+    color: rgba(255, 255, 255, 0.5); /* Adjust text color */
 }
 
 /* Call to Action Button */
@@ -349,4 +377,33 @@ footer {
     50% {
         transform: translateX(20px);
     }
+}
+
+
+
+/* Initial transparent header */
+header {
+    background: transparent;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Glass glossy background when scrolled */
+.header-scrolled {
+    background: rgba(255, 255, 255, 0.6); /* Glass effect */
+    backdrop-filter: blur(10px); /* Optional for the blurred effect */
+    color: #333; /* Change the text color to dark */
+}
+
+/* Logo color change */
+.header-scrolled .logo {
+    color: #22c55e; /* Green color for the logo */
+}
+
+.header-scrolled nav ul li a {
+    color: #333; /* Dark color for links */
+}
+
+.header-scrolled nav ul li a:hover {
+    background-color: #ff9800;
+    color: #1f1f1f;
 }

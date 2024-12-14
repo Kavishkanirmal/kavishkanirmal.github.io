@@ -72,3 +72,17 @@ document.addEventListener('DOMContentLoaded', () => {
     // Generate snowflakes at an interval (every 100ms)
     setInterval(createSnowflake, 100);
 });
+
+
+// JavaScript to add the class when the user scrolls past the hero section
+window.addEventListener('scroll', function() {
+    const header = document.querySelector('header');
+    const heroSection = document.querySelector('.hero');
+    const heroHeight = heroSection.offsetHeight;
+
+    if (window.scrollY > heroHeight) {
+        header.classList.add('header-scrolled');
+    } else {
+        header.classList.remove('header-scrolled');
+    }
+});
