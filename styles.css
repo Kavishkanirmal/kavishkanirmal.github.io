@@ -392,6 +392,7 @@ footer {
 
 .footer-about, .footer-links, .footer-contact {
     max-width: 300px;
+    text-align: center; /* Center-align content for mobile */
 }
 
 .footer-about h3, .footer-links h4, .footer-contact h4 {
@@ -431,6 +432,7 @@ footer {
     display: flex;
     gap: 10px;
     margin-top: 10px;
+    justify-content: center; /* Center-align icons */
 }
 
 .footer-social-icons a {
@@ -457,6 +459,33 @@ footer {
     font-size: 12px;
     color: rgba(255, 255, 255, 0.7);
 }
+
+/* Mobile Specific Adjustments */
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr; /* Stack columns vertically */
+        gap: 15px;
+    }
+
+    .footer-about, .footer-links, .footer-contact {
+        max-width: 100%;
+    }
+
+    .footer-about h3, .footer-links h4, .footer-contact h4 {
+        font-size: 1.2rem;
+    }
+
+    .footer-social-icons a {
+        width: 30px;
+        height: 30px;
+    }
+
+    footer {
+        padding: 20px 15px;
+        font-size: 12px; /* Smaller font size for mobile */
+    }
+}
+
 
 
 /* Mobile Menu Styles */
