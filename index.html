@@ -6,6 +6,7 @@
     <title>OpenSolv Innovations</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 </head>
 <body>
     
@@ -139,18 +140,45 @@
 </section>
 
 
+<!--Notification-->
+<div id="notification" class="notification hidden"></div>
+
+
+
 
     <!-- Contact Section -->
     <section id="contact" class="contact-section">
         <div class="container">
             <h2>Contact Us</h2>
             <p>Let's discuss how we can collaborate to bring your ideas to life!</p>
-            <form>
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
-                <textarea placeholder="Your Message" required></textarea>
+           
+            <form id="contact-form">
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
+                <textarea id="message" name="message" placeholder="Your Message" required></textarea>
                 <button type="submit">Send Message</button>
             </form>
+            <script>
+                // Initialize EmailJS
+                emailjs.init("CXu_FIYDH0t6Qd1HR"); // Replace with your EmailJS public key
+            
+                // Handle form submission
+                document.getElementById("contact-form").addEventListener("submit", function (e) {
+                    e.preventDefault();
+            
+                    const serviceID = "service_c8agwjm"; // Replace with your EmailJS service ID
+                    const templateID = "template_3s0p6ar"; // Replace with your EmailJS template ID
+            
+                    emailjs.sendForm(serviceID, templateID, this)
+                        .then(() => {
+                            // alert("Message sent successfully!");
+                        }, (err) => {
+                            // alert("Failed to send message. Please try again later.");
+                            console.error("EmailJS Error:", err);
+                        });
+                });
+            </script>
+                   
         </div>
     </section>
 

@@ -776,6 +776,7 @@ header {
 }
 
 .contact-section button {
+    width: 100%;
     padding: 15px;
     font-size: 1rem;
     background: linear-gradient(to right, #2563eb, #67e8f9);
@@ -805,4 +806,34 @@ header {
     .contact-section h2 {
         font-size: 2rem;
     }
+}
+
+
+/* Notification Styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    max-width: 300px;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-size: 1rem;
+    color: #fff;
+    z-index: 1000;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.notification.success {
+    background: linear-gradient(to right, #22c55e, #4ade80); /* Green for success */
+}
+
+.notification.error {
+    background: linear-gradient(to right, #ef4444, #f87171); /* Red for error */
+}
+
+.notification.hidden {
+    display: none;
 }
